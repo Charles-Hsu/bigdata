@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./temp/styles/styles.css">
+
+  <title>方圓大數據</title>
+</head>
+
+<body>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal fade text-dark" id="contactModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Contact Us</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-primary btn-block">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新增監控數據 MODAL -->
+  <div class="modal fade text-dark" id="newModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">監控數據</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>類別</label>
+              <input type="text" id="cat" class="form-control" placeholder="監控數據項目類別" />
+            </div>
+
+            <div class="form-group">
+              <label>名稱</label>
+              <input type="text" id="item" class="form-control" placeholder="監控數據項目名稱" />
+            </div>
+            <div class="form-group">
+              <label>評量方法</label>
+              <input type="text" id="func" class="form-control" placeholder="計算公式" />
+            </div>
+
+            <div class="form-group">
+              <label>欄位</label>
+              <!-- <button style="font-size:10px;padding:.1rem .1rem;line-height: 0.5;" class="btn btn-default"> -->
+              <button type="button" class="btn-outline-secondary btn btn-default btn-sm" id="btnAddItem">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+              <!-- <button style="font-size:10px;padding:.1rem .1rem;line-height: 0.5;" class="btn btn-default btn-sm"> -->
+              <button type="button" class="btn btn-outline-secondary btn-primary btn-sm" id="btnRemoveItem">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+              </button>
+              <div id="TextBoxGroup" tabindex="0">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <!-- <label for="exampleFormControlSelect1">Example select</label> -->
+              <label>登記頻率</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option value='d'>日</option>
+                <option value='w'>週</option>
+                <option value='m'>月</option>
+                <option value='y'>年</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>綠燈</label>
+              <input type="number" id="green" class="form-control" placeholder="低於或高於的監控數值為安全狀態" />
+            </div>
+            <div class="form-group">
+              <label>紅燈</label>
+              <input type="number" id="red" class="form-control" placeholder="低於或高於的監控數值為告警狀態" />
+            </div>
+            <!-- <div class="form-group">
+                  <label for="value">監控數據</label>
+                  <input type="number" id="kpiResult" class="form-control" readonly placeholder="計算結果" />
+                </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button class="btn-primary btn-block" onclick="newItem()" data-dismiss="modal"> -->
+          <button class="btn-primary btn-block" id="newItem" data-dismiss="modal">
+            確 認 新 增
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 修改 Modal -->
+  <div class="modal fade text-dark" id="updateModal"></div>
+
+  <!-- 刪除 MODAL -->
+  <div class="modal fade text-dark" id="deleteModal"></div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">方圓大數據</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item">
+            <a href="#explore-head-section" class="nav-link">Explore</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <p class="text-right" style="margin-top: 70px;"><span id="today"></span></p>
+    <section id="share-section" class="bg-light text-muted _pt-5">
+      <div class="share-inner">
+        <div class="container p-3">
+          <p class="text-right"><span id="today"></span></p>
+          <table class="table table-bordered" style="text-align: center;">
+            <thead>
+              <tr class="bg-secondary text-light">
+                <!-- <th><i class="fa fa-check"></i></th> -->
+                <!-- <i class="far fa-check-circle"></i> -->
+                <!-- <th><i class="fas fa-angle-double-left"></i></th> -->
+                <!-- <i class="far fa-circle"></i> -->
+                <th><i class="far fa-circle"></i></th>
+                <th class="">類別</th>
+                <th class="">名稱</th>
+                <th class="d-none d-sm-table-cell">評量方法</th>
+                <th class="d-none d-sm-table-cell">a</th>
+                <th class="d-none d-sm-table-cell">b</th>
+                <th class="d-none d-sm-table-cell">c</th>
+                <th class="d-none d-sm-table-cell">d</th>
+                <th class="d-none d-sm-table-cell">e</th>
+                <th class="d-none d-sm-table-cell">f</th>
+                <th class="d-none d-sm-table-cell">g</th>
+                <th class="d-none d-sm-table-cell">綠燈</th>
+                <th class="d-none d-sm-table-cell">紅燈</th>
+                <th class="">現值</th>
+              </tr>
+            </thead>
+            <tbody id="kpiTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="main-footer" class="bg-white mb-5">
+    <div class="container d-sm-block">
+      <div class="row">
+        <div class="col text-center py-4">
+          <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#newModal">
+            新增
+          </button>
+          <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#updateModal" disabled id="btnUpdate">
+            輸入
+          </button>
+          <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#deleteModal" id="btnDelete"
+            disabled>
+            刪除
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <section class="bg-light _stat-chart">
+      <div class="bg-light ml-3 mr-3 mt-3" style="background: red;">
+        <div id="chartContainer1" class="bg-light stat-chart" _style="height: 360px; width: 100%; margin-top:300px;"></div>
+        <div class="row">
+          <div class="col" style="border: 1px solid #d6d0d0;">
+            <button class="btn btn-light btn-block text-secondary" type="button">週</button>
+          </div>
+          <div class="col" style="border: 1px solid #d6d0d0;">
+            <button class="btn btn-light btn-block text-secondary" type="button">月</button>
+          </div>
+          <div class="col" style="border: 1px solid #d6d0d0;">
+            <button class="btn btn-light btn-block text-secondary" type="button">年</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="bg-dark">
+      <div class="container text-light">
+        <div class="row">
+          <div class="col text-center py-4">
+            <h3>方圓大數據</h3>
+            <p>Copyright &copy; <span id="year"></span></p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
+              聯絡我們
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery CDN -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <!-- BootStrap CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"></script>
+    <!-- Axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script src="./temp/scripts/canvas.js"></script>
+    <script src="./temp/scripts/utils.js"></script>
+    <script src="./temp/scripts/global.js"></script>
+    <script src="./temp/scripts/kpi.js"></script>
+    <script src="./temp/scripts/modals.js"></script>
+
+
+    <script type="text/javascript">
+      window.onload = function () {
+        // renderChart();
+        setupDateTime();
+        renderChart1();
+        refreshTodayKpis();
+      };
+    </script>
+
+</body>
+
+</html>
