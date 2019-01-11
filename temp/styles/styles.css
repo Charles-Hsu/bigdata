@@ -1,0 +1,9 @@
+/* .stat-chart {
+  margin-top: 100px;
+} */
+
+.stat-chart {
+  height: 360px;
+  width: 100%;
+  margin-top:50px;
+}
