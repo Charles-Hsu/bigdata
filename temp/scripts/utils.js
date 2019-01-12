@@ -42,13 +42,20 @@ $("#btnRemoveItem").click(function () {
 });
 
 function generateHtmlforItemAndVal(i) {
+
+  var c = String.fromCharCode("a".charCodeAt(0) + i - 1);
+
   var htmlForKpiItem = '<div class="row" id="TextBoxDiv' + i + '">' +
     '<div class="form-group col-1 float-right"/>' +
     '<div class="form-group col-1 float-right align-self-center">' +
-    '&#' + (97 + i - 1) + ';&nbsp&nbsp=' +
+    // '&#' + (97 + i - 1) + ';&nbsp&nbsp=' +
+    c + '&nbsp&nbsp=' +
     '</div>' +
     '<div class="form-group col-6">' +
-    ' <input id="kpi-item-' + i + '" class="form-control input-group-lg reg_name" type="text" placeholder="名稱 ' + i + '" /> ' +
+    // ' <input id="kpi-item-' + i +
+    ' <input id="' + c + 'Post' +
+    '" class="form-control input-group-lg reg_name" type="text" placeholder="名稱 ' + i +
+    '" /> ' +
     '</div>';
   return htmlForKpiItem;
 }

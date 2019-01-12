@@ -172,12 +172,77 @@ function bgClass(green, red, val) {
 
 
 $('#newItem').click(function () {
+
   console.log($('#cat').val());
   console.log($('#item').val());
   console.log($('#func').val());
   console.log($('#green').val());
   console.log($('#red').val());
   console.log($('#val').val());
+
+  // 欄位
+  console.log(_g_kpiItemCounter);
+
+  let a = $('#aPost').val();
+
+  if (a == null) {
+    alert('至少需要一個欄位');
+    return;
+  }
+
+  if (a.lenght == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
+
+  let b = $('#bPost').val();
+  let c = $('#cPost').val();
+  let d = $('#dPost').val();
+  let e = $('#ePost').val();
+  let f = $('#fPost').val();
+  let g = $('#gPost').val();
+
+  if (b == null) {
+    b = '?';
+  } else if (b.length == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
+
+  if (c == null) {
+    c = '?';
+  } else if (c.length == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
+
+  if (d == null) {
+    d = '?';
+  } else if (d.length == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
+
+  if (e == null) {
+    e = '?';
+  } else if (e.length == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
+
+  if (f == null) {
+    f = '?';
+  } else if (f.length == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
+
+  if (g == null) {
+    g = '?';
+  } else if (g.length == 0) {
+    alert('欄位名稱不可為空白');
+    return;
+  }
 
   calKpiVal();
 
@@ -186,13 +251,23 @@ $('#newItem').click(function () {
       cat: $('#cat').val(),
       item: $('#item').val(),
       func: $('#func').val(),
-      a: $('#kpi-item-1').val(),
-      b: $('#kpi-item-2').val(),
-      c: $('#kpi-item-3').val(),
-      d: $('#kpi-item-4').val(),
-      e: $('#kpi-item-5').val(),
-      f: $('#kpi-item-6').val(),
-      g: $('#kpi-item-7').val(),
+
+      a: a,
+      b: b,
+      c: c,
+      d: d,
+      e: e,
+      f: f,
+      g: g,
+
+      // a: $('#kpi-item-1').val(),
+      // b: $('#kpi-item-2').val(),
+      // c: $('#kpi-item-3').val(),
+      // d: $('#kpi-item-4').val(),
+      // e: $('#kpi-item-5').val(),
+      // f: $('#kpi-item-6').val(),
+      // g: $('#kpi-item-7').val(),
+
       green: $('#green').val(),
       red: $('#red').val(),
       val: $('#val').val(),
