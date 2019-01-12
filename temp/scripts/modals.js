@@ -108,23 +108,44 @@ function createUpdateModal() {
   $('#greenUpdate').val(kpis['Green']);
   $('#redUpdate').val(kpis['Red']);
 
+
+
   $('#updateModalConfirm').click(function () {
 
     var i = _g_currentRowIndex;
     var kpis = _g_currentKPIs[i];
+
+    let a = $('#aUpdate').val();
+
+    if (a == null) {
+      alert('至少需要一個欄位');
+      return;
+    }
+
+    if (a.lenght == 0) {
+      alert('欄位名稱 a 不可為空白');
+      return;
+    }
+
+    let b = $('#bUpdate').val();
+    let c = $('#cUpdate').val();
+    let d = $('#dUpdate').val();
+    let e = $('#eUpdate').val();
+    let f = $('#fUpdate').val();
+    let g = $('#gUpdate').val();
 
     axios
       .post(host + '/kpi/update', {
         cat: kpis['Cat'],
         item: kpis['Item'],
         func: $('#funcUpdate').val(),
-        a: $('#aUpdate').val(),
-        b: $('#bUpdate').val(),
-        c: $('#cUpdate').val(),
-        d: $('#dUpdate').val(),
-        e: $('#eUpdate').val(),
-        f: $('#fUpdate').val(),
-        g: $('#gUpdate').val(),
+        a: a,
+        b: b,
+        c: c,
+        d: d,
+        e: e,
+        f: f,
+        g: g,
         green: $('#greenUpdate').val(),
         red: $('#redUpdate').val(),
       }).then(function (response) {
