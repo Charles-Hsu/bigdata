@@ -61,13 +61,13 @@ function drawKpiTable() {
 
     // item.i = '<input type="radio" name="kpi" />';
 
-    let a = item.A;
-    let b = item.B;
-    let c = item.C;
-    let d = item.D;
-    let e = item.E;
-    let f = item.F;
-    let g = item.G;
+    let a = parseFloat(item.A);
+    let b = parseFloat(item.B);
+    let c = parseFloat(item.C);
+    let d = parseFloat(item.D);
+    let e = parseFloat(item.E);
+    let f = parseFloat(item.F);
+    let g = parseFloat(item.G);
     let express = item.Func;
     let val = '?';
 
