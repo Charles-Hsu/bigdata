@@ -124,14 +124,14 @@ function genKpiRowTdHtml(item, val) {
     '<td>' +
     item.Item +
     '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.Func + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.A + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.B + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.C + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.D + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.E + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.F + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.G + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.Func + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.A + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.B + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.C + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.D + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.E + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.F + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.G + '</td>' +
     '<td class="d-none">' + item.A_ + '</td>' +
     '<td class="d-none">' + item.B_ + '</td>' +
     '<td class="d-none">' + item.C_ + '</td>' +
@@ -139,8 +139,8 @@ function genKpiRowTdHtml(item, val) {
     '<td class="d-none">' + item.E_ + '</td>' +
     '<td class="d-none">' + item.F_ + '</td>' +
     '<td class="d-none">' + item.G_ + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.Green + '</td>' +
-    '<td class="_d-none d-sm-table-cell">' + item.Red + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.Green + '</td>' +
+    '<td class="d-none d-sm-table-cell">' + item.Red + '</td>' +
     '<td>' + val + '</td>';
 }
 
